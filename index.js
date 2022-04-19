@@ -66,12 +66,10 @@ const mergeConfigs = (main, user) => {
 class App {
  constructor() {
   try {
-   this.userConfig = ini.parse(
-    fs.readFileSync(
-     path.join(require("os").homedir(), ".config/stew/stewrc"),
-     "utf8"
-    )
+   let configpath = p(
+    { win32: "~/.stewrc", linux: "~/.config/stew/stewrc" }[process.platform]
    );
+   this.userConfig = ini.parse(fs.readFileSync(configpath));
   } catch (error) {
    switch (error.errno) {
     case -2: {
