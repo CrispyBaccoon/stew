@@ -1,0 +1,17 @@
+{
+  "name": "stew",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node .",
+    "test": "node . ~/.config/test/testfile",
+    "testdir": "node . ~/.config/test"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ini": "^3.0.0"
+  }
+}
