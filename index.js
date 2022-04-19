@@ -4,7 +4,6 @@ const dev = true;
 
 const fs = require("fs");
 const ini = require("ini");
-const { Module } = require("module");
 const path = require("path");
 
 const args = process.argv.slice(2);
