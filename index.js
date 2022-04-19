@@ -65,17 +65,15 @@ const mergeConfigs = (main, user) => {
 
 class App {
  constructor() {
+  let configpath = p(
+   { win32: "~/.stewrc", linux: "~/.config/stew/stewrc" }[process.platform]
+  );
   try {
-   let configpath = p(
-    { win32: "~/.stewrc", linux: "~/.config/stew/stewrc" }[process.platform]
-   );
    this.userConfig = ini.parse(fs.readFileSync(configpath));
   } catch (error) {
    switch (error.errno) {
     case -2: {
-     console.warn(
-      "~/.config/stew/stewrc does not exist\n Using default config"
-     );
+     console.warn(`${configpath} does not exist\n Using default config`);
      this.userConfig = {};
      if (!dev) {
       break;
