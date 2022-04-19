@@ -75,8 +75,10 @@ class App {
   } catch (error) {
    switch (error.errno) {
     case -2: {
-     console.warn("~/.config/stew/stewrc does not exist\n Using default config");
-     this.userConfig = {}
+     console.warn(
+      "~/.config/stew/stewrc does not exist\n Using default config"
+     );
+     this.userConfig = {};
      if (!dev) {
       break;
      }
@@ -84,7 +86,6 @@ class App {
     default: {
      console.log(error);
      process.exit();
-     break;
     }
    }
   }
