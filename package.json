@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "start": "node .",
     "test": "node . ~/.config/test/testfile",
@@ -10,8 +11,5 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "ini": "^3.0.0"
-  }
+  "license": "ISC"
 }
