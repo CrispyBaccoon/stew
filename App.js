@@ -167,6 +167,20 @@ class App {
  }
 
  setup(name) {
+  let ans = false;
+  if (name == null) {
+   prompt.question("are you sure you want to setup all config files? (y/N)", function(answer) {
+     ans = answer
+     prompt.close();
+   })
+   prompt.on('close', () => {
+    if ( ans == 'Y' || ans == 'y' ) {
+     Object.keys(this.config.module).map(name => this.setup(name));
+    }
+    process.exit();
+   })
+  }
+
   const loc = this.config.module.hasOwnProperty(name)
    ? this.config.module[name]
    : [];

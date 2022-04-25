@@ -12,8 +12,7 @@ switch (command) {
     if (args[0] != undefined) {
       app.setup(args[0]);
     } else {
-      console.warn("not enough arguments.");
-      process.exit();
+      app.setup(null)
     }
     break;
   }
