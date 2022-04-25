@@ -1,6 +1,7 @@
 import fs from "fs";
 import path from "path";
 import os from "os";
+import readline from "readline";
 
 const dev = true;
 
@@ -91,6 +92,10 @@ class App {
     fs.mkdirSync(this.stewpath);
    }
   }
+  this.prompt = readline.createInterface({
+   input: process.stdin,
+   output: process.stdout
+  })
  }
 
  configpath = "";
@@ -109,6 +114,7 @@ class App {
  get git() {
   return this.config.main.git;
  }
+ prompt = null;
 
  _saveConfig() {
   fs.writeFileSync(this.configpath, JSON.stringify(this.config));
