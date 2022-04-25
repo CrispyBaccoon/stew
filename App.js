@@ -4,6 +4,10 @@ import os from "os";
 import readline from "readline";
 
 const dev = true;
+let prompt = readline.createInterface({
+ input: process.stdin,
+ output: process.stdout
+})
 
 const p = (path) => path.replace("~", `${os.homedir}`);
 
@@ -92,10 +96,6 @@ class App {
     fs.mkdirSync(this.stewpath);
    }
   }
-  this.prompt = readline.createInterface({
-   input: process.stdin,
-   output: process.stdout
-  })
  }
 
  configpath = "";
@@ -114,7 +114,6 @@ class App {
  get git() {
   return this.config.main.git;
  }
- prompt = null;
 
  _saveConfig() {
   fs.writeFileSync(this.configpath, JSON.stringify(this.config));
