@@ -47,7 +47,7 @@ const copyDir = (src, target, targetFolderName = false) => {
 const mergeConfigs = (main, user) => {
  let config = main;
 
- // Move section/name to config.section.name
+ /* Move section/name to config.section.name */
  /* Object.keys(user)
   .filter((key) => /\//.test(key))
   .map((key) => {
@@ -56,7 +56,7 @@ const mergeConfigs = (main, user) => {
    user[section][name] = user[key];
   }); */
 
- // Merge configs
+ /* Merge configs */
  Object.keys(main).map((key) => {
   config[key] = Object.assign(main[key], user[key]);
  });
@@ -88,7 +88,7 @@ class App {
   }
   this.config = mergeConfigs(this.defaultConfig, this.userConfig);
 
-  // Check if stewpath exists
+  /* Check if stewpath exists */
   if (!fs.existsSync(this.stewpath)) {
    fs.mkdirSync(this.stewpath);
   } else {
@@ -122,7 +122,7 @@ class App {
  add(pth, name) {
   if (this.config.module[name]) {
    console.warn(`a stew with name: *${name}* already exists.`);
-   // TODO: Maybe ask for link
+   /* TODO: Maybe ask for link */
    process.exit();
   }
   pth = path.normalize(pth);
@@ -130,7 +130,7 @@ class App {
 
   if (!fs.existsSync(pth)) {
    console.warn(`${pth} does not exist.`);
-   // TODO: Maybe ask for link
+   /* TODO: Maybe ask for link */
    process.exit();
   }
 
