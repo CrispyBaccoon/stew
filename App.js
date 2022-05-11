@@ -189,7 +189,8 @@ class App {
    process.exit();
   }
 
-  loc
+   loc
+   .map(l => p(l))
    .filter((l) => {
     if (fs.existsSync(l)) {
      console.log(`${l} already exists.`);
