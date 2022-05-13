@@ -146,7 +146,7 @@ class App {
    }
   }
   if (isDir) {
-   copyDir(pth, p(this.stewpath), configname);
+   copyDir(pth, p(this.stewpath), name);
    fs.rm(pth, { recursive: true }, (err) => {
     if (!err) {
      this.link(pth, name);
