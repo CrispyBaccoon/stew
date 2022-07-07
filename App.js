@@ -67,7 +67,7 @@ const mergeConfigs = (main, user) => {
 class App {
  constructor() {
   this.configpath = p(
-   { win32: "~/.stewrc", linux: "~/.stewrc" }[process.platform] || "~/.stewrc"
+   { win32: "~/.stewrc", linux: "~/.config/stew/stewrc" }[process.platform] || "~/.stewrc"
   );
   try {
    this.userConfig = JSON.parse(fs.readFileSync(this.configpath));
